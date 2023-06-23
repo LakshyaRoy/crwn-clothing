@@ -43,7 +43,7 @@ const SignUpForm = () => {
 
       const userRef = doc(db, "user", createUser.user.uid);
       await setDoc(userRef, {
-        userId: createUser.user.uid,
+        uid: createUser.user.uid,
         email: email.toLowerCase(),
         displayName: displayName.toLowerCase().trim(),
         authProvider: "Email and password",
