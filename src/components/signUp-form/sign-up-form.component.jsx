@@ -37,6 +37,7 @@ const SignUpForm = () => {
     try {
       const createUser = await signUp(email, password);
       console.log(createUser);
+
       await updateProfile(auth.currentUser, {
         displayName: displayName.toLowerCase().trim(),
       });

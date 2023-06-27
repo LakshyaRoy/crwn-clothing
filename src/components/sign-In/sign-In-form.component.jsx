@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   // auth,
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 
@@ -29,9 +28,8 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
+    await signInWithGooglePopup();
     // console.log(user);
-    await createUserDocumentFromAuth(user);
   };
 
   const handleSubmit = async (event) => {
@@ -40,8 +38,8 @@ const SignInForm = () => {
     // console.log(formFields);
 
     try {
-      const response = await signInAuthWithEmailAndPassword(email, password);
-      console.log(response);
+      const { user } = await signInAuthWithEmailAndPassword(email, password);
+      console.log(user);
       resetFormFields();
     } catch (error) {
       switch (error.code) {
