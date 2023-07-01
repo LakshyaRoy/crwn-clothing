@@ -9,7 +9,6 @@ import {
 
 import FormInput from "../form-input/form-input.component";
 import "./sign-In-form.style.scss";
-
 import Button from "../button/button.component";
 
 const defaultFormFields = {
